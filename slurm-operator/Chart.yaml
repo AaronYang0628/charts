@@ -1,0 +1,26 @@
+annotations:
+  category: Infrastructure
+apiVersion: v2
+appVersion: 24.05.3
+name: slurm
+description: A Helm chart for Slurm Cluster
+version: 1.0.4
+home: https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart
+icon: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png
+keywords:
+- slurm
+- hpc
+- k8s
+maintainers:
+- name: Aaron Yang
+  url: https://github.com/AaronYang0628
+sources:
+- https://github.com/AaronYang0628/charts/releases/download/R-1.0.4/slurm-1.0.4.tgz
+dependencies:
+  - name: common
+    version: 2.22.0
+    repository: https://charts.bitnami.com/bitnami
+  - name: mariadb
+    version: 19.0.6
+    repository: https://charts.bitnami.com/bitnami
+    condition: mariadb.enabled

@@ -1,0 +1,103 @@
+apiVersion: v1
+entries:
+  common:
+  - annotations:
+      category: Infrastructure
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 2.22.0
+    created: "2025-03-07T17:06:45.14749489+08:00"
+    description: A Library Helm Chart for grouping common logic between bitnami charts.
+      This chart is not deployable by itself.
+    digest: f08ada920444add76d87a23c588089bfa1a59dd9cf516abe47bbc8aa0da9aee4
+    home: https://bitnami.com
+    icon: https://bitnami.com/downloads/logos/bitnami-mark.png
+    keywords:
+    - common
+    - helper
+    - template
+    - function
+    - bitnami
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: common
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/common
+    type: library
+    urls:
+    - charts/common-2.22.0.tgz
+    version: 2.22.0
+  mariadb:
+  - annotations:
+      category: Database
+      images: |
+        - name: mariadb
+          image: docker.io/bitnami/mariadb:11.4.3-debian-12-r0
+        - name: mysqld-exporter
+          image: docker.io/bitnami/mysqld-exporter:0.15.1-debian-12-r30
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r27
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 11.4.3
+    created: "2025-03-07T17:06:45.150512462+08:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: MariaDB is an open source, community-developed SQL database server
+      that is widely in use around the world due to its enterprise features, flexibility,
+      and collaboration with leading tech firms.
+    digest: ed780b0bcd454aabbbbaed5974e735b918757e649112175bd63c9ee015217a90
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+    keywords:
+    - mariadb
+    - mysql
+    - database
+    - sql
+    - prometheus
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: mariadb
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/mariadb
+    urls:
+    - charts/mariadb-19.0.6.tgz
+    version: 19.0.6
+  slurm:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 24.05.3
+    created: "2025-03-07T17:06:45.146926156+08:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.22.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.0.6
+    description: A Helm chart for Slurm Cluster
+    digest: b4c3869c57a669961ff23d2e5bee853b4e948625c442def0446eb0665f12b3e6
+    home: https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png
+    keywords:
+    - slurm
+    - hpc
+    - k8s
+    maintainers:
+    - name: Aaron Yang
+      url: https://github.com/AaronYang0628
+    name: slurm
+    sources:
+    - https://github.com/AaronYang0628/charts/releases/download/R-1.0.4/slurm-1.0.4.tgz
+    urls:
+    - slurm-1.0.4.tgz
+    version: 1.0.4
+generated: "2025-03-07T17:06:45.140533848+08:00"
